@@ -14,3 +14,11 @@
 2026-06-16 00:30:53,407 - INFO - Video processing completed. Generating final heatmap...
 2026-06-16 00:31:06,507 - INFO - Final heatmap saved to: output/final_heatmap.png
 2026-06-16 00:31:06,508 - INFO - Pipeline completed successfully.
+2026-06-16 00:31:31,877 - INFO - Successfully loaded configuration from /var/folders/l3/ql4b4y593n5fwxdhl2k094pc0000gn/T/tmpkgryn6bs/config.yaml
+2026-06-16 00:31:31,878 - INFO - Initializing Tracker and Visualizer...
+2026-06-16 00:31:31,906 - INFO - Loading YOLO model with weights: yolov8n.pt
+2026-06-16 00:31:31,944 - INFO - Processing video: /var/folders/l3/ql4b4y593n5fwxdhl2k094pc0000gn/T/tmpkgryn6bs/people-walking.mp4
+2026-06-16 00:31:31,944 - INFO - Target video will be saved to: output/output_people_flow.mp4
+2026-06-16 00:32:07,104 - INFO - Video processing completed. Generating final heatmap...
+2026-06-16 00:32:19,581 - INFO - Final heatmap saved to: output/final_heatmap.png
+2026-06-16 00:32:19,582 - INFO - Pipeline completed successfully.

@@ -108,7 +108,23 @@ if st.button("Run Processing") and uploaded_file is not None:
                     st.subheader("Processed Video")
                     if os.path.exists(target_path):
                         # Browsers need h264 to play mp4s properly from OpenCV
-                        st.video(target_path)
+                        h264_path = target_path.replace(".mp4", "_h264.mp4")
+                        try:
+                            from moviepy import VideoFileClip
+                            clip = VideoFileClip(target_path)
+                            clip.write_videofile(h264_path, codec="libx264", audio=False, logger=None)
+                            st.video(h264_path)
+                        except Exception as e:
+                            st.warning(f"Failed to convert video for web playback. Attempting raw file...")
+                            st.video(target_path)
+                        
+                        with open(target_path, "rb") as file:
+                            btn = st.download_button(
+                                label="Download Raw Output Video",
+                                data=file,
+                                file_name="output_people_flow.mp4",
+                                mime="video/mp4"
+                            )
                     else:
                         st.warning("Processed video not found.")
                         
