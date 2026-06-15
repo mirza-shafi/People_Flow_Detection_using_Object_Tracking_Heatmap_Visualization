@@ -47,11 +47,18 @@ This project uses YOLOv8 and ByteTrack to detect, track, and count people crossi
    PYTHONPATH=src python src/main.py
    ```
    *Optional*: Override the input video via CLI:
-   ```bash
-   PYTHONPATH=src python src/main.py --source data/my_custom_video.mp4
-   ```
+### 2. Streamlit Web Dashboard (UI)
 
-### 2. Docker Deployment
+If you prefer to use a visual interface to upload videos and tweak parameters interactively:
+
+1. Ensure your virtual environment is active and dependencies are installed (including `streamlit`).
+2. Run the Streamlit app:
+   ```bash
+   PYTHONPATH=src streamlit run src/app.py
+   ```
+3. A web browser will automatically open at `http://localhost:8501`.
+
+### 3. Docker Deployment
 
 **Prerequisites:** Docker installed and running.
 
