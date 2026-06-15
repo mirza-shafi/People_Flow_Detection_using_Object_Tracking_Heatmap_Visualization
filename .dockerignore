@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Project Specifics
+data/*
+output/*
+yolov8n.pt
+
+# Git
+.git
+.gitignore
+
+# Jupyter notebooks
+*.ipynb

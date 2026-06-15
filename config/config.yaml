@@ -1,0 +1,22 @@
+# Configuration for People Flow Detection
+
+video:
+  source_path: "data/people-walking.mp4"
+  target_path: "output/output_people_flow.mp4"
+  heatmap_image_path: "output/final_heatmap.png"
+
+model:
+  weights_path: "yolov8n.pt"
+  target_class_id: 0 # COCO class 0 is 'person'
+
+tracker:
+  type: "bytetrack"
+
+lines:
+  # Proportions of the frame height
+  upper_line_y_ratio: 0.4
+  lower_line_y_ratio: 0.65
+
+heatmap:
+  radius: 25
+  opacity: 0.6
