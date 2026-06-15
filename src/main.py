@@ -27,12 +27,13 @@ def main():
     parser.add_argument("--source", type=str, help="Override source video path")
     args = parser.parse_args()
 
+    import sys
     # Load configuration
     try:
         config = load_config(args.config)
     except Exception as e:
         logging.error(f"Failed to load configuration: {e}")
-        return
+        sys.exit(1)
 
     # Override source if provided via CLI
     source_video_path = args.source if args.source else config['video']['source_path']
@@ -41,7 +42,7 @@ def main():
 
     if not Path(source_video_path).exists():
         logging.error(f"Source video not found: {source_video_path}")
-        return
+        sys.exit(1)
 
     logging.info("Initializing Tracker and Visualizer...")
     
@@ -49,7 +50,7 @@ def main():
         video_info = sv.VideoInfo.from_video_path(source_video_path)
     except Exception as e:
         logging.error(f"Failed to read video info from {source_video_path}: {e}")
-        return
+        sys.exit(1)
 
     tracker = PeopleTracker(config)
     visualizer = PeopleFlowVisualizer(config, video_info)
@@ -80,7 +81,7 @@ def main():
                 
     except Exception as e:
         logging.error(f"An error occurred during video processing: {e}")
-        return
+        sys.exit(1)
 
     logging.info("Video processing completed. Generating final heatmap...")
 
@@ -94,7 +95,7 @@ def main():
         logging.info(f"Final heatmap saved to: {heatmap_image_path}")
     except Exception as e:
         logging.error(f"An error occurred while generating the heatmap: {e}")
-        return
+        sys.exit(1)
 
     logging.info("Pipeline completed successfully.")
 

@@ -39,8 +39,8 @@ if st.button("Run Processing") and uploaded_file is not None:
     # Set up temp and output paths
     temp_dir = tempfile.mkdtemp()
     source_path = os.path.join(temp_dir, uploaded_file.name)
-    target_path = os.path.join(temp_dir, "output.mp4")
-    heatmap_path = os.path.join(temp_dir, "heatmap.png")
+    target_path = "output/output_people_flow.mp4"
+    heatmap_path = "output/final_heatmap.png"
     
     # Write uploaded video to temp file
     with open(source_path, "wb") as f:
@@ -84,8 +84,9 @@ if st.button("Run Processing") and uploaded_file is not None:
             env = os.environ.copy()
             env["PYTHONPATH"] = "src"
             
+            import sys
             result = subprocess.run(
-                ["python", "src/main.py", "--config", config_path],
+                [sys.executable, "src/main.py", "--config", config_path],
                 env=env,
                 capture_output=True,
                 text=True
